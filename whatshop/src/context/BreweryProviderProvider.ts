@@ -2,8 +2,8 @@ import React from 'react'
 
 type Props = {}
 
-export default function BreweryProviderProvider({}: Props) {
+export default function BreweryProvider({}: Props) {
   return (
-    <div>BreweryProviderProvider</div>
+    <div>BreweryProvider</div>
   )
 }
