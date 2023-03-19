@@ -1,8 +1,8 @@
 import Brewery from '../Model/Brewery';
 
 export interface BreweryContextModel {
-  brewery:[],
-  addBrewery:() => {},
-  removeBrewery:() => {},
+  brewery:Brewery[],
+  addBrewery:(brewery:Brewery) => void,
+  removeBrewery:(id:string) => void,
 }
 
