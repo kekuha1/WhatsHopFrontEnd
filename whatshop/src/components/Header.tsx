@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-type Props = {}
 
-export default function Header({}: Props) {
+export default function Header() {
   return (
-    <div>Header</div>
-  )
+    <div className="Header">
+      <p><h1>What's Hop?</h1></p>
+      
+    </div>
+  );
 }

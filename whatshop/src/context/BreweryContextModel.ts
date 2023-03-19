@@ -1,9 +1,9 @@
 import React from 'react'
 
-type Props = {}
+// type Props = {}
 
-export default function BreweryContextModel({}: Props) {
-  return (
-    <div>BreweryContextModel</div>
-  )
-}
+// export default function BreweryContextModel({}: Props) {
+//   return (
+//     <div>BreweryContextModel</div>
+//   )
+// }
