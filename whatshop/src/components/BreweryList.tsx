@@ -1,26 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Brewery from '../Model/Brewery'
 import SearchForm from './SearchForm'
 import { Col, Row } from 'reactstrap'
 import { BreweryItem } from './BreweryItem'
+import axios from 'axios'
 
 export function BreweryList() {
 
-  const [brewerys, setBrewerys] = useState<Brewery[]>()
+  const [breweries, setBreweries] = useState<Brewery[]>()
 
   //useEffect hook to get the 12 breweries on page load
-
+ useEffect(() => {
+    axios.get<Brewery[]>('/breweries')
+      .then(response => setBreweries(response.data))
+      .catch(error => console.error(error));
+  }, []);
   //useEffect hook to filter the breweries from the SearchForm
   function filterBrewerys(brewerys:Brewery[]){
-    setBrewerys(brewerys)
+    setBreweries(breweries)
   }
 
   return (
     <div className='Brewerys'>
       {/* <SearchForm filterBrewerys={filterBrewerys}/> */}
       <Row>
-        { brewerys?.length ?
-          brewerys?.map((brewery) => (
+        { breweries?.length ?
+          breweries?.map((brewery) => (
             <Col lg="4" key={brewery.id}>
                 <BreweryItem brewery={brewery} />
             </Col>
