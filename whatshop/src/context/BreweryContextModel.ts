@@ -1,9 +1,8 @@
-import React from 'react'
+import Brewery from '../Model/Brewery';
 
-type Props = {}
-
-export default function BreweryContextModel({}: Props) {
-  return (
-    <div>BreweryContextModel</div>
-  )
+export interface BreweryContextModel {
+  brewery:[],
+  addBrewery:() => {},
+  removeBrewery:() => {},
 }
+
