@@ -1,7 +1,6 @@
-import React, { createContext, useEffect, useState } from 'react'
+import { createContext } from 'react';
 import Brewery from '../Model/Brewery';
-import axios from "axios";
-
+import { BreweryContextModel } from './BreweryContextModel';
 
 const defaultValue:BreweryContextModel={
   brewery:[],
@@ -10,3 +9,5 @@ const defaultValue:BreweryContextModel={
 }
 
 const BreweryContext = createContext(defaultValue)
+
+export default BreweryContext
