@@ -16,7 +16,7 @@ export function BreweryList() {
   }, []);
 
   // useEffect(() => {
-  //  axios.get<Brewery[]>('https://whatshop-b56f0.web.app//breweries') 
+  //  axios.get<Brewery[]>('https://whatshop-b56f0.web.app/breweries') 
   //     .then(response => setBreweries(response.data))
   //     .catch(error => console.error(error));
   // }, []);

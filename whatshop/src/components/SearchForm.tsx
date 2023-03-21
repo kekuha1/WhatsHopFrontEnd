@@ -1,9 +1,11 @@
-import React from 'react'
+import { useState } from "react";
+import firebase from 'firebase/app';
+import 'firebase/functions';
 
-type Props = {}
+export interface ISearchFormProps {
+  filterBreweries: Function
+}
 
-export default function SearchForm({}: Props) {
-  return (
-    <div>SearchForm</div>
-  )
+
+
 }
