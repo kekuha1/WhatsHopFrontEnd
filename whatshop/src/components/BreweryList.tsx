@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Brewery from '../Model/Brewery'
+import Brewery from '../model/Brewery'
 import { Col, Row } from 'reactstrap'
 import { BreweryItem } from './BreweryItem'
 import axios from 'axios'
@@ -21,7 +21,7 @@ export function BreweryList() {
 
   return (
     <div className="Breweries">
-      <SearchForm filterBrewerys={filterBrewerys}/>
+      <SearchForm filterBreweries={filterBreweries}/>
 
       <Row>
         {breweries?.length ? (
