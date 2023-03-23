@@ -21,4 +21,3 @@ export async function queryBreweries(city: string, state: string): Promise<Brewe
     console.log(error);
     return [];
   }
-}

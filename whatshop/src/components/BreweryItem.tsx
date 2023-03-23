@@ -1,16 +1,24 @@
-import React from 'react'
-import Brewery from '../Model/Brewery';
-import { Button, Card, CardBody, CardDeck, CardSubtitle, CardText, CardTitle } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Brewery from "../model/Brewery";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardDeck,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 export interface IBreweryItemProps {
-  brewery: Brewery
+  brewery: Brewery;
 }
 
 export function BreweryItem(props: IBreweryItemProps) {
-  let {brewery} = props;
+  let { brewery } = props;
 
-// use context here to create the addBrewery function to add something to the favorites list
+  // use context here to create the addBrewery function to add something to the favorites list
 
   return (
     <CardDeck>
@@ -23,11 +31,9 @@ export function BreweryItem(props: IBreweryItemProps) {
           <CardText>{brewery.brewery_type}</CardText>
           <Link to={`/reviewsroute/${brewery.id}`}>Reviews</Link>
           {/* add onClick function */}
-          <Button className="AddBrewery">
-            Add to Favorites
-            </Button>  
+          <Button className="AddBrewery">Add to Favorites</Button>
         </CardBody>
       </Card>
     </CardDeck>
-  )
+  );
 }

@@ -6,9 +6,9 @@ import axios from 'axios'
 import { SearchForm } from './SearchForm'
 import { GetAllBreweries } from '../services/breweryservices'
 
-export function BreweryList() {
 
-  const [breweries, setBreweries] = useState<Brewery[]>()
+export function BreweryList() {
+  const [breweries, setBreweries] = useState<Brewery[]>();
 
   //useEffect hook to get the 12 breweries on page load
  useEffect(() => {
@@ -20,20 +20,22 @@ export function BreweryList() {
   }
 
   return (
-    <div className='Brewerys'>
-      <SearchForm 
-       filterBreweries={filterBreweries}
-      />
+    <div className="Breweries">
+      <SearchForm filterBrewerys={filterBrewerys}/>
+
       <Row>
-        { breweries?.length ?
+        {breweries?.length ? (
           breweries?.map((brewery) => (
             <Col lg="4" key={brewery.id}>
-                <BreweryItem brewery={brewery} />
+              <BreweryItem brewery={brewery} />
             </Col>
           )) || ""
-        : <Col tag="h1">No breweries found for your search terms, please try again</Col>
-        }
+        ) : (
+          <Col tag="h1">
+            No breweries found for your search terms, please try again
+          </Col>
+        )}
       </Row>
     </div>
-  )
+  );
 }
