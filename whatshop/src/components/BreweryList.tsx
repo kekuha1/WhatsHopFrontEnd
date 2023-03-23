@@ -1,35 +1,28 @@
-import { useEffect, useState } from "react";
-import Brewery from "../model/Brewery";
-import { Col, Row } from "reactstrap";
-import { BreweryItem } from "./BreweryItem";
-import axios from "axios";
+import { useEffect, useState } from 'react'
+import Brewery from '../Model/Brewery'
+import { Col, Row } from 'reactstrap'
+import { BreweryItem } from './BreweryItem'
+import axios from 'axios'
+import { SearchForm } from './SearchForm'
+import { GetAllBreweries } from '../services/breweryservices'
+
 
 export function BreweryList() {
   const [breweries, setBreweries] = useState<Brewery[]>();
 
   //useEffect hook to get the 12 breweries on page load
-  useEffect(() => {
-    axios
-      .get<Brewery[]>(
-        "http://127.0.0.1:5001/whatshop-b56f0/us-central1/getBreweries/breweries"
-      )
-      .then((response) => setBreweries(response.data))
-      .catch((error) => console.error(error));
+ useEffect(() => {
+   GetAllBreweries().then(data => setBreweries(data));
   }, []);
 
-  // useEffect(() => {
-  //  axios.get<Brewery[]>('https://whatshop-b56f0.web.app//breweries')
-  //     .then(response => setBreweries(response.data))
-  //     .catch(error => console.error(error));
-  // }, []);
-  //useEffect hook to filter the breweries from the SearchForm
-  // function filterBrewerys(brewerys:Brewery[]){
-  //   setBreweries(breweries)
-  // }
+  function filterBreweries(breweries:Brewery[]){
+    setBreweries(breweries)
+  }
 
   return (
-    <div className="Brewerys">
-      {/* <SearchForm filterBrewerys={filterBrewerys}/> */}
+    <div className="Breweries">
+      <SearchForm filterBrewerys={filterBrewerys}/>
+
       <Row>
         {breweries?.length ? (
           breweries?.map((brewery) => (
