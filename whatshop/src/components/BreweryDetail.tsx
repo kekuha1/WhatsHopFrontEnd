@@ -7,7 +7,7 @@ export interface IBreweryDetailProps {
     brewery: Brewery
   }
 
-export function BreweryItem(props: IBreweryDetailProps) {
+export function BreweryDetail({}, props: IBreweryDetailProps) {
     let {brewery} = props;
   
 return (
