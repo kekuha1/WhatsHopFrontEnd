@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 export function Header() {
  return (
-   <nav>
+   <nav className='Header'>
      <h1>
-       <Link to="/">What's Hop?</Link>
+       <Link className='whatshop' to="/">What's Hop?</Link>
      </h1>
      <ul>
        <li>
-         <Link to="/glossary">Glossary</Link>
+         <Link className='headerlink' to="/glossary">Glossary</Link>
        </li>
        <li>
-         <Link to="/profile">Profile</Link>
+         <Link className='headerlink' to="/profile">Profile</Link>
        </li>
        <li>
-         <Link to="/my-reviews">My Reviews</Link>
+         <Link className='headerlink' to="/my-reviews">My Reviews</Link>
        </li>
      </ul>
    </nav>
