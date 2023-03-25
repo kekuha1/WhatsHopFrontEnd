@@ -3,11 +3,8 @@ import { useParams } from 'react-router-dom';
 import Brewery from '../model/Brewery'
 import { useEffect, useState } from 'react';
 
-export interface IReviewsRouteProps {
-  
-}
 
-export function ReviewsRoute (props: IReviewsRouteProps) {
+export function ReviewsRoute () {
   //used to capture the id for the brewery
   const {id} = useParams<{id:string}>();
   console.log(id)
@@ -37,11 +34,9 @@ export function ReviewsRoute (props: IReviewsRouteProps) {
             <li key={brewery.id}>
               <h2>{brewery.name}</h2>
               <p>{brewery.city}, {brewery.state}</p>
-              <a ref={brewery.website_url}>{brewery.website_url}</a>
             </li>
           ))}
         </ul>
       </div>
     );
-
 }
