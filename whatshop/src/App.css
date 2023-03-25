@@ -1,3 +1,4 @@
+
 .Header {
   padding: 20px;
   flex-direction: row;
@@ -44,4 +45,27 @@ input {
 
 .headerlink:hover {
   color: rgb(255, 166, 0);
+}
+
+.cardStyle {
+ text-align: center;
+ width: 50%;
+}
+
+.AddBrewery {
+ margin-left: 30px;
+}
+
+.wholeCard {
+  display: flex;
+  justify-content: center;
+transform: translateY(35px);
+margin-top: 5px;
+}
+
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

@@ -21,8 +21,8 @@ export function BreweryItem(props: IBreweryItemProps) {
   // use context here to create the addBrewery function to add something to the favorites list
 
   return (
-    <CardDeck>
-      <Card>
+    <CardDeck className="wholeCard">
+      <Card  className="cardStyle">
         <CardBody>
           <CardTitle tag="h5">{brewery.name}</CardTitle>
           <CardSubtitle className="mb-2 text-muted">
@@ -31,7 +31,7 @@ export function BreweryItem(props: IBreweryItemProps) {
           <CardText>{brewery.brewery_type}</CardText>
           <Link to={`/reviewsroute/${brewery.id}`}>Reviews</Link>
           {/* add onClick function */}
-          <Button className="AddBrewery">Add to Favorites</Button>
+          {/* <Button className="AddBrewery">Add to Favorites</Button> */}
         </CardBody>
       </Card>
     </CardDeck>

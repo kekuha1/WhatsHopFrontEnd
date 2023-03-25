@@ -22,7 +22,7 @@ function handleSubmit(e:React.FormEvent<HTMLElement>){
 }
 
   return (
-    <div>
+    <div className="searchContainer">
       <form onSubmit={handleSubmit} className="search-form">
   <div className="form-group">
     <label htmlFor="city">City</label>

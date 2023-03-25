@@ -28,9 +28,9 @@ return (
          {/* *Need to use this spot for average user ratings */}
          <Link to={`/reviewsroute/${brewery.id}`}>Reviews</Link>
          {/* add onClick function */}
-         <Button className="AddBrewery">
+         {/* <Button className="AddBrewery">
            Add to Favorites
-           </Button>  
+           </Button>   */}
        </CardBody>
      </Card>
   )
