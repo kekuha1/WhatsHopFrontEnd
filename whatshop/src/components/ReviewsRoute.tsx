@@ -1,42 +1,40 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import Brewery from '../model/Brewery'
+import Review from '../model/Review'
 import { useEffect, useState } from 'react';
+import { ReviewsList } from './ReviewsList';
+import { fetchReviews } from '../services/ReviewServices';
+import ReviewForm from './ReviewForm';
 
 
-export function ReviewsRoute () {
+function ReviewsRoute () {
   //used to capture the id for the brewery
-  const {id} = useParams<{id:string}>();
-  console.log(id)
+  const { id } = useParams<{id:string}>();
   //used to capture the brewery name to display it to the screen
-  const {name} = useParams<{name:string}>();
+  const { name } = useParams<{name:string}>();
 
-  // const [reviews, setReviews] = useState<Reviews[]>();
-  // useEffect(loadReviews, [])
+  const [brewery_id, setBreweryId] = useState<string>();
 
-    // function loadReviews() {
-    //   fetchReviews().then(setReviews)
-    // }
-    const [breweries, setBreweries] = useState<Brewery[]>([]);
+  useEffect(() => {
+    setBreweryId(id);
+    
+    async function loadReviews() {
+      const reviews = await fetchReviews();
+      setReviews(reviews);
+    }
+    
+    loadReviews();
+  }, [id]);
 
-    useEffect(() => {
-      fetch(`https://api.openbrewerydb.org/breweries`)
-        .then(response => response.json())
-        .then(data => setBreweries(data))
-        .catch(error => console.log(error));
-    }, []);
-  
-    return (
-      <div className='ReviewsRoute'>
-        <h1>Breweries:</h1>
-        <ul>
-          {breweries.map((brewery: Brewery) => (
-            <li key={brewery.id}>
-              <h2>{brewery.name}</h2>
-              <p>{brewery.city}, {brewery.state}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+  const [reviews, setReviews] = useState<Review[]>();
+
+  return (
+    <div className='ReviewsRoute'>
+      <h1>Reviews for {name}</h1>
+      {reviews ? <ReviewsList reviews={reviews}/> : <p>Loading reviews...</p>}
+      <ReviewForm brewery_id={brewery_id}/>
+    </div>
+  );
 }
+export default ReviewsRoute;
+
