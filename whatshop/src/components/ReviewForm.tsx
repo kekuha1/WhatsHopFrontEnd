@@ -1,18 +1,13 @@
 import { useContext, useState } from "react";
-import { MongoClient } from "mongodb";
+// import { MongoClient } from "mongodb";
 import ReviewsContext from "../context/ReviewsContext";
 
 interface IReviewFormProps {
-  brewId: string;
-  rating: number;
-  beer: string;
-  atmosphere: string;
-  comment: string;
+  brewery_id: string;
 }
 
 export function ReviewForm () {
   const [fullName, setFullName] = useState<string>("");
-  const [brewId, setbrewId] = useState<string>("");
   const [comment, setComment] = useState<string>("");
   const [atmosphere, setAtmosphere] = useState<string>("");
   const [beer, setBeer] = useState<string>("");
@@ -40,12 +35,15 @@ export function ReviewForm () {
           />
         </label>
         <label>
-          Rating:
           <input
             type="number"
             name="rating"
             value={rating}
-            onChange={(e)=>setRating(e.target.value)}
+            onChange={(e) => setRating(e.target.value)}
+            min="1"
+            max="5"
+            pattern="[1-5]"
+            title="Please enter a number between 1 and 5."
           />
         </label>
         <br />

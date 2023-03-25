@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import Review from "../Model/Review";
+import Review from "../model/Review";
 
 interface ReviewsContextModel {
   reviews: Review[];
