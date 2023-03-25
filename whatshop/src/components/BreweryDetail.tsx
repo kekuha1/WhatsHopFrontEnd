@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Brewery from '../model/Brewery';
 import { Button, Card, CardBody, CardDeck, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 import { Link } from 'react-router-dom';

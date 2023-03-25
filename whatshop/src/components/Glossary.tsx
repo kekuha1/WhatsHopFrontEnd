@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 // This would be imported by the header Component.
 export default function Glossary() {
