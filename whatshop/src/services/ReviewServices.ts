@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Review from '../Model/Review';
+import Review from '../model/Review';
 
 
 const baseUrl = process.env.REACT_APP_BASE_URL || ""
