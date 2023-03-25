@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import Review from "../Model/Review";
+import Review from "../model/Review";
 import { addReview, fetchReviews } from "../services/ReviewServices";
 import ReviewsContext from "./ReviewsContext";
 
