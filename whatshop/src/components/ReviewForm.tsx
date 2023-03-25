@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 // import { MongoClient } from "mongodb";
 import ReviewsContext from "../context/ReviewsContext";
+import Review from '../model/Review';
 
 interface IReviewFormProps {
-  brewery_id: string;
+  brewery_id: string | undefined;
 }
 
-export function ReviewForm () {
+export function ReviewForm ({brewery_id} : IReviewFormProps) {
+  // const [brewery_id, setBreweryId] = useState<string>()
   const [fullName, setFullName] = useState<string>("");
   const [comment, setComment] = useState<string>("");
   const [atmosphere, setAtmosphere] = useState<string>("");
@@ -17,7 +19,7 @@ export function ReviewForm () {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await addReviewHandler({fullName,comment, atmosphere, beerSelection: beer, rating:+rating })
+    await addReviewHandler({brewery_id, fullName,comment, atmosphere, beerSelection: beer, rating:+rating })
     // navigate(<endpoint>)
   };
 

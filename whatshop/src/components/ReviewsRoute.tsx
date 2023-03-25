@@ -31,6 +31,7 @@ function ReviewsRoute () {
     <div className='ReviewsRoute'>
       <h1>Reviews for {name}</h1>
       {reviews ? <ReviewsList reviews={reviews}/> : <p>Loading reviews...</p>}
+      <ReviewForm brewery_id={brewery_id}/>
     </div>
   );
 }
