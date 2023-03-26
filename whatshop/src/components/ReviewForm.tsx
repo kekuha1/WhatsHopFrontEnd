@@ -19,6 +19,7 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    console.log(brewery_id)
     addReview({brewery_id, fullName,comment, atmosphere, beerSelection: beer, rating:+rating }).then(onAdd);
     setFullName("")
     setComment('')

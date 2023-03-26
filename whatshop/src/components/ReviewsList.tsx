@@ -9,7 +9,7 @@ export function ReviewsList ({reviews} : IReviewsListProps) {
   return (
     <div className='ReviewsList'>
         <ul>
-            {reviews.map(rev => <li>
+            {reviews.map(rev => <li key={rev._id}>
                 <h3>Rating: {rev.rating}</h3>
                 <p>Name: {rev.fullName}</p>
                 <p>Beer Selection: {rev.beerSelection}</p>
