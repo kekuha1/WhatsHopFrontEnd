@@ -3,38 +3,37 @@ import { useParams } from 'react-router-dom';
 import Review from '../model/Review'
 import { useEffect, useState } from 'react';
 import { ReviewsList } from './ReviewsList';
-import { fetchReviews } from '../services/ReviewServices';
+// import { fetchReviews } from '../services/ReviewServices';
 import ReviewForm from './ReviewForm';
+import { fetchReviews } from '../services/ReviewServices';
 
 
-function ReviewsRoute () {
-  //used to capture the id for the brewery
-  const { id } = useParams<{id:string}>();
-  //used to capture the brewery name to display it to the screen
-  const { name } = useParams<{name:string}>();
-
-  const [brewery_id, setBreweryId] = useState<string>();
+function ReviewsRoute() {
+  const { id, name } = useParams<{ id: string, name: string }>();
+  
+  const [breweryId, setBreweryId] = useState<string>('');
+  const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
-    setBreweryId(id);
-    
-    async function loadReviews() {
-      const reviews = await fetchReviews();
-      setReviews(reviews);
+    function loadReviews() {
+      fetchReviews().then(setReviews);
     }
-    
-    loadReviews();
-  }, [id]);
 
-  const [reviews, setReviews] = useState<Review[]>();
+    if (id) {
+      setBreweryId(id);
+    }
+
+    loadReviews();
+  }, [id, fetchReviews]);
 
   return (
     <div className='ReviewsRoute'>
       <h1>Reviews for {name}</h1>
-      {reviews ? <ReviewsList reviews={reviews}/> : <p>Loading reviews...</p>}
-      <ReviewForm brewery_id={brewery_id}/>
+      {reviews.length > 0 ? <ReviewsList reviews={reviews} /> : <p>Loading reviews...</p>}
+      <ReviewForm brewery_id={breweryId} />
     </div>
   );
 }
+
 export default ReviewsRoute;
 
