@@ -21,8 +21,8 @@ export function BreweryItem(props: IBreweryItemProps) {
   // use context here to create the addBrewery function to add something to the favorites list
 
   return (
-    <CardDeck>
-      <Card>
+    <CardDeck className="wholeCard">
+      <Card  className="cardStyle">
         <CardBody>
           <CardTitle tag="h5">{brewery.name}</CardTitle>
           <CardSubtitle className="mb-2 text-muted">
