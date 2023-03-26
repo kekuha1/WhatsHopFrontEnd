@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Brewery from '../model/Brewery'
 import { Col, Row } from 'reactstrap'
 import { BreweryItem } from './BreweryItem'
-import axios from 'axios'
 import { SearchForm } from './SearchForm'
 import { GetAllBreweries } from '../services/breweryservices'
 

@@ -29,9 +29,8 @@ export function BreweryItem(props: IBreweryItemProps) {
             {brewery.city},{brewery.state}
           </CardSubtitle>
           <CardText>{brewery.brewery_type}</CardText>
-          <Link to={`/reviewsroute/${brewery.id}`}>Reviews</Link>
-          {/* add onClick function */}
-          {/* <Button className="AddBrewery">Add to Favorites</Button> */}
+          <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}>Reviews</Link>
+          <Button className="AddBrewery">Add to Favorites</Button>
         </CardBody>
       </Card>
     </CardDeck>

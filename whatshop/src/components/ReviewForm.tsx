@@ -1,27 +1,31 @@
-import { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import Review from "../model/Review";
+import { addReview } from "../services/ReviewServices";
 // import { MongoClient } from "mongodb";
-import ReviewsContext from "../context/ReviewsContext";
-import Review from '../model/Review';
 
 interface IReviewFormProps {
   brewery_id: string | undefined;
+  onAdd?: (review: Review) => void
 }
 
-export function ReviewForm ({brewery_id} : IReviewFormProps) {
+export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
   // const [brewery_id, setBreweryId] = useState<string>()
   const [fullName, setFullName] = useState<string>("");
   const [comment, setComment] = useState<string>("");
   const [atmosphere, setAtmosphere] = useState<string>("");
   const [beer, setBeer] = useState<string>("");
   const [rating, setRating] = useState<string>("");  
-  const {addReviewHandler}= useContext(ReviewsContext)
   //navigate to where ever; const navigate = useNavigate() 
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    await addReviewHandler({brewery_id, fullName,comment, atmosphere, beerSelection: beer, rating:+rating })
-    // navigate(<endpoint>)
-  };
+    addReview({brewery_id, fullName,comment, atmosphere, beerSelection: beer, rating:+rating }).then(onAdd);
+    setFullName("")
+    setComment('')
+    setAtmosphere('')
+    setRating('')
+    setBeer('')
+  }
 
   const renderForm = () => {
     return (
