@@ -1,5 +1,7 @@
 import React from "react";
 import Brewery from "../model/Brewery";
+import starfillsvg from "../../src/assets/starfill.svg"
+import staremptysvg from "../../src/assets/starempty.svg"
 import {
   Button,
   Card,
@@ -18,6 +20,14 @@ export interface IBreweryItemProps {
 export function BreweryItem(props: IBreweryItemProps) {
   let { brewery } = props;
 
+  function removeEvent(id: any) {
+    throw new Error("Function not implemented.");
+  }
+
+  function setFavorite(arg0: boolean) {
+    throw new Error("Function not implemented.");
+  }
+
   // use context here to create the addBrewery function to add something to the favorites list
 
   return (
@@ -30,7 +40,14 @@ export function BreweryItem(props: IBreweryItemProps) {
           </CardSubtitle>
           <CardText>{brewery.brewery_type}</CardText>
           <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}>Reviews</Link>
-          <Button className="AddBrewery">Add to Favorites</Button>
+  {/* <Button className="Starbutton" style={{padding: 2}} onClick={() => {
+            }}>
+        <img style={{height: "30px", width: "30px", backgroundColor: "yellow"}} src={starfillsvg}></img>
+    </Button>; */}
+    <Button className="Starbutton" style={{padding: 2}} onClick={() => {
+            }}>
+        <img style={{height: "30px", width: "30px"}} src={staremptysvg}></img>
+    </Button>
         </CardBody>
       </Card>
     </CardDeck>

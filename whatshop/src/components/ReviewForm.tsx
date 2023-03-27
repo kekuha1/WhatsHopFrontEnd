@@ -30,7 +30,8 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
 
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
+      <section>
+      <form className="renderForm" onSubmit={handleSubmit}>
         <br />
         <label>
           Name:
@@ -41,7 +42,9 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
             onChange={(e)=>setFullName(e.target.value)}
           />
         </label>
+  <br/>
         <label>
+          Rating
           <input
             type="number"
             name="rating"
@@ -76,6 +79,7 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
         <br />
         <label>
           Comment:
+          <br/>
           <textarea
             name="comment"
             value={comment}
@@ -85,9 +89,10 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
         <br />
         <button type="submit">Submit</button>
       </form>
+      </section>
     );
   };
-
+  
   return renderForm();
 };
 
