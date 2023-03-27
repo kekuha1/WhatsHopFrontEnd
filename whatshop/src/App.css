@@ -69,3 +69,29 @@ margin-top: 5px;
   justify-content: center;
   text-align: center;
 }
+
+button:hover {
+  background-color: green;
+  }
+
+
+  button {
+    background-color: rgb(124, 124, 186);
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .renderForm {
+    text-align: center;
+  }
+
+  section {
+    border: 2px solid;
+    margin-top: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+
+.Starbutton {
+  margin-left: 20px;
+}
