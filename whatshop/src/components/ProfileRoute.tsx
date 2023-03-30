@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { BrowserRouter, Link } from "react-router-dom";
+import AuthContext from '../context/AuthContext';
+import { signInWithGoogle, signOut } from "../firebaseConfig"
 
-type Props = {}
 
-function ProfileRoute({}: Props) {
+function ProfileRoute() {
+  const { user } = useContext(AuthContext);
   return (
-    <div>ProfileRoute</div>
+    <div>
+      {
+            user == null ? 
+            <button onClick={signInWithGoogle}>Sign in with Google</button>
+            :
+            <button onClick={signOut}>Sign out</button>
+        }
+    </div>
   )
 }
 
