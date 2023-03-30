@@ -12,6 +12,7 @@ export async function queryBreweries(city: string, state: string): Promise<Brewe
     params.by_city = encodeURIComponent(city.replace(/\s+/g, '_'));
   }
   if (state) {
+    console.log(typeof state)
     params.by_state = encodeURIComponent(state.replace(/\s+/g, '_'));
   }
   try {
