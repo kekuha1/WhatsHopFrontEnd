@@ -10,7 +10,7 @@ function ProfileRoute() {
     <div>
       {
             user == null ? 
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
+            <button className="googleButton" onClick={signInWithGoogle}>Sign in with Google</button>
             :
             <button onClick={signOut}>Sign out</button>
         }
