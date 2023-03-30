@@ -23,3 +23,8 @@ export async function queryBreweries(city: string, state: string): Promise<Brewe
     return [];
   }
 }
+
+export function GetBreweryById(id: string) {
+  return axios.get<Brewery>(`https://api.openbrewerydb.org/v1/breweries/${id}`
+  )
+}

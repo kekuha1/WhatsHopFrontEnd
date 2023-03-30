@@ -10,7 +10,7 @@ function AuthContextProvider({children}: {children:ReactNode}) {
         return auth.onAuthStateChanged(newUser => {
             setUser(newUser);
             if (newUser){
-                const profile = getProfile(newUser.uid)
+                // const profile = getProfile(newUser.uid)
                 if (profile){
                     setProfile(profile)
                 } else {
@@ -19,7 +19,7 @@ function AuthContextProvider({children}: {children:ReactNode}) {
                         username: newUser.displayName!,
                         displayName: newUser.displayName!,
                     }
-                makeProfile(newProfile);
+                // makeProfile(newProfile);
                 setProfile(newProfile)
                 }
                 

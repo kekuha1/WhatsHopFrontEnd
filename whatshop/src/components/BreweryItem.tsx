@@ -40,6 +40,7 @@ export function BreweryItem(props: IBreweryItemProps) {
           </CardSubtitle>
           <CardText>Type: {brewery.brewery_type}</CardText>
           <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}>Reviews</Link>
+          
   {/* <Button className="Starbutton" style={{padding: 2}} onClick={() => {
             }}>
         <img style={{height: "30px", width: "30px", backgroundColor: "yellow"}} src={starfillsvg}></img>
@@ -48,7 +49,9 @@ export function BreweryItem(props: IBreweryItemProps) {
             }}>
         <img style={{height: "30px", width: "30px"}} src={staremptysvg}></img>
     </Button>
+      <Link to={`/brewerydetail/${brewery.id}`}>Details</Link>
         </CardBody>
+        
       </Card>
     </CardDeck>
   );
