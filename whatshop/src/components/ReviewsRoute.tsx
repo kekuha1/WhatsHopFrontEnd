@@ -17,16 +17,16 @@ function ReviewsRoute() {
   const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
-    function loadReviews() {
-      fetchReviewsByBrewId(breweryId).then(setReviews);
-    }
+  if (id) {
+    setBreweryId(id);
+  }
+}, [id]);
 
-    if (id) {
-      setBreweryId(id);
-    }
-
-    loadReviews();
-  }, [id, breweryId]);
+useEffect(() => {
+  if (breweryId) {
+    fetchReviewsByBrewId(breweryId).then(setReviews);
+  }
+}, [breweryId]);
 
   return (
     <div className="ReviewsRoute">
@@ -35,11 +35,12 @@ function ReviewsRoute() {
       {reviews.length > 0 ? (
         <ReviewsList reviews={reviews} />
       ) : (
-        <p>Loading reviews...</p>
+        <h3>No reviews yet!</h3>
       )}
       
     </div>
   );
 }
+
 
 export default ReviewsRoute;

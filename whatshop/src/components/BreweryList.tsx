@@ -3,25 +3,35 @@ import Brewery from '../model/Brewery'
 import { Col, Row } from 'reactstrap'
 import { BreweryItem } from './BreweryItem'
 import { SearchForm } from './SearchForm'
-import { GetAllBreweries } from '../services/breweryservices'
+import { GetAllBreweries, queryBreweries } from '../services/breweryservices'
+import { BreweryButtonBar } from './BreweryButtonBar'
 
 
 export function BreweryList() {
   const [breweries, setBreweries] = useState<Brewery[]>();
 
   //useEffect hook to get the 12 breweries on page load
- useEffect(() => {
-   GetAllBreweries().then(data => setBreweries(data));
+  useEffect(() => {
+    GetAllBreweries().then(data => setBreweries(data));
   }, []);
 
-  function filterBreweries(breweries:Brewery[]){
-    setBreweries(breweries)
-  }
+ function filterBreweries(searchParams: { city: string, state: string }) {
+  queryBreweries(searchParams.city, searchParams.state)
+    .then((breweries) => setBreweries(breweries))
+}
+
+  function handleButtonClick(city: string, state: string) {
+  const searchParams = { city, state };
+  queryBreweries(searchParams.city, searchParams.state).then(data => setBreweries(data));
+}
 
   return (
     <div className="Breweries">
-      <SearchForm filterBreweries={filterBreweries}/>
-
+      <SearchForm filterBreweries={filterBreweries} />
+      <div className='Button-Bar'>
+      <h5>Search by top ten Beer Cities!</h5>
+      <BreweryButtonBar onButtonClick={handleButtonClick} />
+      </div>
       <Row>
         {breweries?.length ? (
           breweries?.map((brewery) => (
