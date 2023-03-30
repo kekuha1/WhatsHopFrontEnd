@@ -85,6 +85,13 @@ button:hover {
     text-align: center;
   }
 
+  .googleButton {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+  }
+
   section {
     border: 2px solid;
     margin-top: 10px;

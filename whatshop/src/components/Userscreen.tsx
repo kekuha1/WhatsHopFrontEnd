@@ -5,14 +5,12 @@ export function UserScreen(){
 
     return (
     <div>
+        <p className="greeting">Hello</p>
         { user != null ? <div>
-            <p>UID: {user.uid}</p>
-            <p>Display Name: {user.displayName}</p>
-            <p>Email: {user.email}</p>
+                Thanks for Signing in
         </div>
         :
         <div>
-            <p>Please log in to see stuff!</p>
         </div>
         }
 
