@@ -27,7 +27,7 @@ export function BreweryButtonBar(props: IBreweryButtonBarProps) {
   return (
     <div className='BreweryButtonBar'>
       {citiesAndStates.map((item, index) => (
-        <button key={index} onClick={() => handleButtonClick(item.city, item.state)}>
+        <button className='topCityButton' key={index} onClick={() => handleButtonClick(item.city, item.state)}>
           {item.city}, {item.state}
         </button>
       ))}

@@ -7,7 +7,6 @@ import { BreweryList } from './components/BreweryList';
 import { BreweryDetail } from './components/BreweryDetail';
 import ProfileRoute from './components/ProfileRoute';
 import AuthContextProvider from './context/AuthContextProvider';
-import { UserScreen } from './components/Userscreen';
 
 function App() {
   return (
@@ -22,8 +21,6 @@ function App() {
         <Route path="*" element={<Navigate to={"/brewerylist"} />} />
         <Route path="/profile" element={<ProfileRoute />} />
         </Routes>
-        {/* <ProfileRoute/> */}
-        <UserScreen/>
         </AuthContextProvider>
      </div>
   );
