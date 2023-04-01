@@ -14,12 +14,17 @@ li {
   list-style-type: none;
   flex-direction: row;
   display: inline-block;
-  padding: 10px;
+  padding: 5px;
 }
 
 input {
   max-width: 300px;
   display: flex;
+}
+
+.form-control {
+  width: 500px;
+  text-align: center;
 }
 
 .whatshop {
@@ -30,12 +35,17 @@ input {
   justify-content: center;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
+  flex-wrap: nowrap;
 }
 
 .headerlink {
   color: black;
   text-decoration: none;
+  list-style-type: none;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .whatshop:hover {
@@ -107,7 +117,8 @@ button:hover {
   }
 
 .Starbutton {
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .greeting {
@@ -138,4 +149,29 @@ button:hover {
   margin-left: 10px;
 }
 
+.topcityheader{
+  display: flex;
+  justify-content: center;
+}
 
+.CardReviews {
+  text-decoration: none;
+  color: black;
+  border: 1px sold black;
+}
+
+.CardDetails {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  border: 1px sold black;
+}
+
+.Searchbutton {
+  margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 400px) {
+
+}

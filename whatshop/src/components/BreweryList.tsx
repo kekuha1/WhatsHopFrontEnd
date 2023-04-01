@@ -29,7 +29,7 @@ export function BreweryList() {
     <div className="Breweries">
       <SearchForm filterBreweries={filterBreweries} />
       <div className='Button-Bar'>
-      <h5>Search by top ten Beer Cities!</h5>
+      <h5 className='topcityheader'>Search by top ten Beer Cities!</h5>
       <BreweryButtonBar onButtonClick={handleButtonClick} />
       </div>
       <Row>

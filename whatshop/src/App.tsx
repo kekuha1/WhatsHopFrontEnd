@@ -7,6 +7,7 @@ import { BreweryList } from './components/BreweryList';
 import { BreweryDetail } from './components/BreweryDetail';
 import ProfileRoute from './components/ProfileRoute';
 import AuthContextProvider from './context/AuthContextProvider';
+import { BucketListRoute } from './components/BucketListRoute';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/brewerydetail/:id' element={<BreweryDetail />} />
         <Route path="*" element={<Navigate to={"/brewerylist"} />} />
         <Route path="/profile" element={<ProfileRoute />} />
+        <Route path="Favorites" element={<BucketListRoute/>}/>
         </Routes>
         </AuthContextProvider>
      </div>

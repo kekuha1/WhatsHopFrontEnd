@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext"
+import AuthContext from "../context/AuthContext";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
 export function Authentication(){
     const { user } = useContext(AuthContext)
