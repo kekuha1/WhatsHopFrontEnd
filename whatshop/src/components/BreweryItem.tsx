@@ -64,11 +64,11 @@ export function BreweryItem(props: IBreweryItemProps) {
 
   return (
     <CardDeck className="wholeCard">
-      <Card  className="cardStyle">
+      <Card  className="cardStyle" style={{ height: "200px" }}>
         <CardBody>
           <CardTitle tag="h5">Name: {brewery.name}</CardTitle>
           <CardSubtitle className="mb-1 text-muted">
-           Location:{brewery.city}, {brewery.state}
+           Location: {brewery.city}, {brewery.state}
           </CardSubtitle>
           <CardText>Type: {brewery.brewery_type}</CardText>
           <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}><button className="CardReviews">Reviews</button></Link>
