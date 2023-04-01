@@ -28,9 +28,13 @@ useEffect(() => {
   }
 }, [breweryId]);
 
+const handleAddReview = (review: Review) => {
+    setReviews([...reviews, review]);
+  };
+
   return (
     <div className="ReviewsRoute">
-      <ReviewForm brewery_id={breweryId} />
+      <ReviewForm brewery_id={breweryId} onAdd={handleAddReview} />
       <h1>Reviews for {name}</h1>
       {reviews.length > 0 ? (
         <ReviewsList reviews={reviews} />
