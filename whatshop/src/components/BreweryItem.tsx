@@ -64,7 +64,7 @@ export function BreweryItem(props: IBreweryItemProps) {
 
   return (
     <CardDeck className="wholeCard">
-      <Card  className="cardStyle" style={{ height: "200px" }}>
+      <Card  className="cardStyle" style={{ height: "220px" }}>
         <CardBody>
           <CardTitle tag="h5">Name: {brewery.name}</CardTitle>
           <CardSubtitle className="mb-1 text-muted">
