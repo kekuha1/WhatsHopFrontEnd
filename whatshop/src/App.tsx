@@ -21,7 +21,7 @@ function App() {
         <Route path='/brewerydetail/:id' element={<BreweryDetail />} />
         <Route path="*" element={<Navigate to={"/brewerylist"} />} />
         <Route path="/profile" element={<ProfileRoute />} />
-        <Route path="Favorites" element={<BucketListRoute/>}/>
+        <Route path="/Favorites" element={<BucketListRoute/>}/>
         </Routes>
         </AuthContextProvider>
      </div>
