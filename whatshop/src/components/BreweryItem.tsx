@@ -41,14 +41,14 @@ export function BreweryItem(props: IBreweryItemProps) {
             removeBrewery(brewery.id);
             setFavorite(false);
             }}>
-        <img style={{height: "30px", width: "30px", backgroundColor:"yellow" }} src={starfillsvg}></img>
+        <img style={{height: "30px", width: "30px", backgroundColor:"green" }} src={starfillsvg}></img>
     </Button>;
     } else {
         button= <Button className="StarbuttonEmpty" style={{padding: 2}} onClick={() => {
             addBrewery(brewery);
             setFavorite(true);
             }}>
-        <img style={{height: "30px", width: "30px", backgroundColor:"white"}} src={staremptysvg}></img>
+        <img style={{height: "30px", width: "30px", backgroundColor:"grey"}} src={staremptysvg}></img>
     </Button>;
     }
 
@@ -67,7 +67,7 @@ export function BreweryItem(props: IBreweryItemProps) {
       <Card  className="cardStyle" style={{ height: "220px" }}>
         <CardBody>
           <CardTitle tag="h5">Name: {brewery.name}</CardTitle>
-          <CardSubtitle className="mb-1 text-muted">
+          <CardSubtitle className="Locationtext">
            Location: {brewery.city}, {brewery.state}
           </CardSubtitle>
           <CardText>Type: {brewery.brewery_type}</CardText>
