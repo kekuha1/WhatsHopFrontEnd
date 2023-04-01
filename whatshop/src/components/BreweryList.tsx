@@ -35,7 +35,7 @@ export function BreweryList() {
       <Row>
         {breweries?.length ? (
           breweries?.map((brewery) => (
-            <Col lg="3" key={brewery.id}>
+            <Col xs="12" sm="6" md="4" lg="3" key={brewery.id}>
               <BreweryItem brewery={brewery} />
             </Col>
           )) || ""
