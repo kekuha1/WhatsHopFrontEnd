@@ -27,6 +27,7 @@ export function BreweryList() {
 
   return (
     <div className="Breweries">
+      <img src='/featured brewery.png' alt='Logo' style={{ height: '100px', width: "100px" }} />
       <SearchForm filterBreweries={filterBreweries} />
       <div className='Button-Bar'>
       <h5 className='topcityheader'>Search by top ten Beer Cities!</h5>

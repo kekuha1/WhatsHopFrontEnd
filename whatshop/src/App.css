@@ -64,7 +64,7 @@ input {
   color: rgb(138, 136, 136);
 }
 
-.headerlink:hover {
+.headerlinkbutton:hover {
   color: rgb(138, 136, 136);
 }
 
@@ -189,6 +189,21 @@ section {
 
 .Searchbutton {
   margin-top: 10px;
+}
+
+.review-card {
+  background-color: #002145;
+  color: white;
+  width: 250px;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 5px;
+  box-shadow: 5px 5px #7ac142;
+}
+
+.ReviewsList {
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 1000px) {
