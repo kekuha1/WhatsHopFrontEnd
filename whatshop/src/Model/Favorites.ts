@@ -1,9 +1,7 @@
-import { ObjectId } from "mongodb";
 import Brewery from "./Brewery";
 
 export default interface Favorites {
-    _id?: ObjectId;
+    _id?: string;
     uid?: string;
-    brewery_id: string;
     Brewery: Brewery;
 }

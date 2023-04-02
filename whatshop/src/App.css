@@ -193,12 +193,39 @@ section {
   margin-top: 10px;
 }
 
+review-card {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #002145;
+  color: white;
+  width: 250px;
+  max-height: 400px;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 5px 5px #7ac142;
+  border-radius: 10px;
+}
+
+.ReviewsList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+   display: flex;
+  justify-content: center;
+}
+
+.ReviewsRoute {
+  background-color: #b2b7bb
+
+}
+
 .glossary{
   background-color: #A5ACAF;
   text-decoration: none;
   color: white;
   text-align: center;
-}
+
 
 @media (max-width: 1000px) {
 }
