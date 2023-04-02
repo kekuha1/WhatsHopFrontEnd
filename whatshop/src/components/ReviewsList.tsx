@@ -8,15 +8,17 @@ export interface IReviewsListProps {
 export function ReviewsList ({reviews} : IReviewsListProps) {
   return (
     <div className='ReviewsList'>
-        <ul>
-            {reviews.map(rev => <li key={rev._id}>
-                <h3>Rating: {rev.rating}</h3>
-                <p>Name: {rev.fullName}</p>
-                <p>Beer Selection: {rev.beerSelection}</p>
-                <p>Good Brewery Atmosphere: {rev.atmosphere}</p>
-                <p>Comment: {rev.comment}</p>
-            </li>)}
-        </ul>
+     {reviews.map(rev => (
+  <div key={rev._id} className="review-card">
+    <div className="card-body">
+      <h3 className="card-title">Rating: {rev.rating}</h3>
+      <p className="card-text">Name: {rev.fullName}</p>
+      <p className="card-text">Beer Selection: {rev.beerSelection}</p>
+      <p className="card-text">Good Brewery Atmosphere: {rev.atmosphere}</p>
+      <p className="card-text">Comment: {rev.comment}</p>
+    </div>
+  </div>
+))}
       
     </div>
   );
