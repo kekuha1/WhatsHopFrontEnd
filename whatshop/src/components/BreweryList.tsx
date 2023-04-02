@@ -30,7 +30,6 @@ export function BreweryList() {
 
   return (
     <div className="Breweries">
-      <img src='/featured brewery.png' alt='Logo' style={{ height: '100px', width: "100px" }} />
       <ProfileRoute />
       <p>{user?.uid}</p>
       <SearchForm filterBreweries={filterBreweries} />

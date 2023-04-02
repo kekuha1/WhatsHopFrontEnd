@@ -115,7 +115,8 @@ button {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10px;
+  margin-top: 30px;
+  background-color: #2d5980;
 }
 
 section {
@@ -146,7 +147,6 @@ section {
 
 .signinpromt {
   text-align: center;
-  margin-top: 50px;
 }
 
 .signout {
@@ -154,11 +154,12 @@ section {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 10px;
+  background-color: #2d5980;
 }
 
 .Thankyou {
   text-align: center;
-  margin-top: 50px;
+  transform: translateY(40px);
 }
 
 .topCityButton {
@@ -193,7 +194,7 @@ section {
   margin-top: 10px;
 }
 
-review-card {
+.review-card {
   display: flex;
   flex-wrap: wrap;
   background-color: #002145;
