@@ -12,16 +12,16 @@ export function Header() {
      </h1>
      <ul>
       <li>
-      <Link className="headerlink" to="/favorites">Favorite</Link>
+      <Link className="headerlinkbutton" to="/favorites">Favorite</Link>
       </li>
       <li>
-         <Link className='headerlink' to="/glossary">Glossary</Link>
+         <Link className='headerlinkbutton' to="/glossary">Glossary</Link>
          </li>
        <li>
-         <Link className='headerlink' to="/profile">Profile</Link>
+         <Link className='headerlinkbutton' to="/profile">Profile</Link>
        </li>
        <li>
-         <Link className='headerlink' to="/my-reviews">My Reviews</Link>
+         <Link className='headerlinkbutton' to="/my-reviews">My Reviews</Link>
        </li>
      </ul>
    </nav>

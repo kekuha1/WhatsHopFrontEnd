@@ -87,7 +87,7 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
           />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button className="searchsubmit" type="submit">Submit</button>
       </form>
       </section>
     );
