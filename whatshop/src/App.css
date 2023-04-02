@@ -11,6 +11,7 @@
   border-bottom: 4px solid #2d5980;
   background-color: #66c010;
   position: relative;
+  font-family: 'Open Sans', sans-serif;
 }
 
 li {
@@ -42,6 +43,7 @@ input {
 .whatshop {
   color: white;
   text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -52,7 +54,7 @@ input {
 }
 
 .headerlinkbutton {
-  color: black;
+  color: white;
   text-decoration: none;
   list-style-type: none;
   flex-direction: row;
@@ -189,6 +191,13 @@ section {
 
 .Searchbutton {
   margin-top: 10px;
+}
+
+.glossary{
+  background-color: #A5ACAF;
+  text-decoration: none;
+  color: white;
+  text-align: center;
 }
 
 @media (max-width: 1000px) {
