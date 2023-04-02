@@ -1,5 +1,5 @@
-.Breweries{
-  background-color: rgb(199, 198, 198);
+.Breweries {
+  background-color: #b2b7bb;
 }
 
 .Header {
@@ -8,8 +8,8 @@
   justify-content: space-between;
   display: flex;
   align-items: center;
-  border-bottom: 4px solid grey;
-  background-color:  #03c04a;
+  border-bottom: 4px solid #2d5980;
+  background-color: #66c010;
   position: relative;
 }
 
@@ -23,17 +23,16 @@ li {
 input {
   max-width: 400px;
   display: flex;
-
 }
 
 .form-control {
   width: 500px;
   text-align: left;
-  background-color: #98fb98;
+  background-color: white;
 }
 
 .whatshop {
-  color: black;
+  color: white;
   text-decoration: none;
   display: flex;
   text-align: center;
@@ -58,7 +57,7 @@ input {
 }
 
 .headerlink:hover {
-  color: rgb(138, 136, 136) ;
+  color: rgb(138, 136, 136);
 }
 
 .AddBrewery {
@@ -71,8 +70,9 @@ input {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 250px;
-  box-shadow: 5px 5px #03c04a;
-  background-color: #3fd68d;
+  box-shadow: 5px 5px #7ac142;
+  background-color: #002145;
+  
 }
 
 .wholeCard {
@@ -87,12 +87,12 @@ input {
 }
 
 button:hover {
-  background-color: grey;
+  background-color: #A5ACAF;
   color: greenyellow;
 }
 
 button {
-  background-color: #5dbb63;
+  background-color: #A5ACAF;
   color: white;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -163,21 +163,25 @@ section {
 
 .CardReviews {
   text-decoration: none;
-  color: black;
+  color: white;
   border: 1px sold black;
+}
+
+.CardText {
+  text-decoration: none;
+  color: white;
 }
 
 .CardDetails {
   margin: 10px;
   text-decoration: none;
-  color:black;
-  background-color: grey;
+  color: white;
+  background-color: #A5ACAF;
 }
 
 .Searchbutton {
   margin-top: 10px;
 }
 
-@media  (max-width: 1000px) {
-
+@media (max-width: 1000px) {
 }

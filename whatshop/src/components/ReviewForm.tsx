@@ -28,7 +28,7 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
     setBeer('')
   }
 
-  const renderForm = () => {
+  
     return (
       <section>
       <form className="renderForm" onSubmit={handleSubmit}>
@@ -93,7 +93,6 @@ export function ReviewForm ({brewery_id, onAdd} : IReviewFormProps) {
     );
   };
   
-  return renderForm();
-};
+
 
 export default ReviewForm;
