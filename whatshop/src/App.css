@@ -31,6 +31,14 @@ input {
   background-color: white;
 }
 
+.searchsubmit {
+  background-color: #2d5980;
+}
+
+.Searchbutton {
+  background-color: #2d5980
+}
+
 .whatshop {
   color: white;
   text-decoration: none;
@@ -72,7 +80,6 @@ input {
   width: 250px;
   box-shadow: 5px 5px #7ac142;
   background-color: #002145;
-  
 }
 
 .wholeCard {
@@ -154,6 +161,7 @@ section {
 
 .topCityButton {
   margin-left: 10px;
+  background-color: #2d5980;
 }
 
 .topcityheader {
