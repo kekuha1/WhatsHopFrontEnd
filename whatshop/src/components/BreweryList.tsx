@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import Brewery from '../model/Brewery'
 import { Col, Row } from 'reactstrap'
 import { BreweryItem } from './BreweryItem'
 import { SearchForm } from './SearchForm'
 import { GetAllBreweries, queryBreweries } from '../services/breweryservices'
 import { BreweryButtonBar } from './BreweryButtonBar'
+import AuthContext from '../context/AuthContext'
+import ProfileRoute from './ProfileRoute'
 
 
 export function BreweryList() {
   const [breweries, setBreweries] = useState<Brewery[]>();
+  const { user } = useContext(AuthContext);
 
   //useEffect hook to get the 12 breweries on page load
   useEffect(() => {
@@ -28,6 +31,8 @@ export function BreweryList() {
   return (
     <div className="Breweries">
       <img src='/featured brewery.png' alt='Logo' style={{ height: '100px', width: "100px" }} />
+      <ProfileRoute />
+      <p>{user?.uid}</p>
       <SearchForm filterBreweries={filterBreweries} />
       <div className='Button-Bar'>
       <h5 className='topcityheader'>Search by top ten Beer Cities!</h5>
