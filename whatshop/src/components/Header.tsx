@@ -17,9 +17,7 @@ export function Header() {
       <li>
          <Link className='headerlinkbutton' to="/glossary">Glossary</Link>
          </li>
-       <li>
-         <Link className='headerlinkbutton' to="/profile">Profile</Link>
-       </li>
+
      </ul>
    </nav>
    </>
