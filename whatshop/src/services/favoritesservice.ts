@@ -3,9 +3,9 @@ import Favorites from "../model/Favorites";
 
 const baseUrl = process.env.REACT_APP_BASE_URL || "";
 
-export async function fetchFavoritesByUserId(user: string): Promise<Favorites[]> {
+export async function fetchFavoritesByUserId(uid: string): Promise<Favorites[]> {
   return await axios
-    .get<Favorites[]>(`${baseUrl}/user/${user}`)
+    .get<Favorites[]>(`${baseUrl}/user/${uid}`)
     .then((res) => res.data);
 }
 
