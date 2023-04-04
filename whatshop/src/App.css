@@ -228,6 +228,37 @@ section {
   text-align: center;
 }
 
+
+@media screen and (max-width: 540px) {
+
+  .Header {
+    padding: 10px;
+  }
+  .headerlinkbutton {
+    flex-direction: column;
+  }
+  /* .googleButton {
+    *subject to adjustments based on testing*
+  } */
+  .userSection {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+  .greeting {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 767px) {
+  .greeting{
+    margin-top: 15px;
+    margin-left: 45px;
+    margin-right: 45px;
+  }
+}
+
 .mapCard{
   background-color: #A5ACAF;
   display: flex;
