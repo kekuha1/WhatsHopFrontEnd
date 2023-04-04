@@ -228,5 +228,19 @@ section {
   text-align: center;
 }
 
+.mapCard{
+  background-color: #A5ACAF;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  }
+  
+.brewDetailType{
+  text-decoration: none;
+  color: white;
+}
+
+
 @media (max-width: 1000px) {
 }
