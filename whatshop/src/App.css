@@ -228,6 +228,7 @@ section {
   text-align: center;
 }
 
+
 @media screen and (max-width: 540px) {
 
   .Header {
@@ -256,4 +257,21 @@ section {
     margin-left: 45px;
     margin-right: 45px;
   }
+}
+
+.mapCard{
+  background-color: #A5ACAF;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  }
+  
+.brewDetailType{
+  text-decoration: none;
+  color: white;
+}
+
+
+@media (max-width: 1000px) {
 }
