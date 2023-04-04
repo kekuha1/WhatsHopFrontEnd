@@ -9,7 +9,10 @@ function ProfileRoute() {
   return (
     <><div>
       {user == null ?
-        <button className="googleButton" onClick={signInWithGoogle}>Sign in</button>
+        <button className="googleButton" onClick={signInWithGoogle}>
+          Sign in
+          <img className="google" src='/google2.png' alt='Logo' />
+        </button>
         :
         <button className='signout' onClick={signOut}>Sign out</button>}
     </div><div>
