@@ -6,7 +6,7 @@ export function Header() {
  return (
   <>
    <nav className='Header'>
-    <img src='/TransparentBKGD.png' alt='Logo' style={{ height: 'auto', maxWidth: '5%' }} />
+    <img src='/TransparentBKGD.png' alt='Logo' style={{ height: 'auto', minWidth: '50px' }} />
      <h1>
        <Link className='whatshop' to="/">What's Hop?</Link>
      </h1>
