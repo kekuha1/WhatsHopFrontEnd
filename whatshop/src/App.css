@@ -241,28 +241,46 @@ section {
   color: white;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) { */
 
   .Header {
     padding: 10px;
-  }
-  .headerlinkbutton {
+  } 
+  /* .headerlinkbutton {
     flex-direction: column;
-  }
-  /* .googleButton {
-    *subject to adjustments based on testing*
   } */
   .userSection {
     margin-right: 5%;
     margin-left: 5%;
-  }
-  .greeting {
+  } 
+   .greeting {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  .googleButton {
+    height: 30px;
+  }
 }
 
+@media (max-width: 417px){
+  .googleButton {
+   margin-top: 50px;
+  }
+  .form-control {
+    width: fit-content;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 317px){
+  .headerlinkbutton {
+   transform: translateX(50px);
+   margin-right: 1px;
+  }
+
+}
 @media screen and (min-width: 541px) and (max-width: 767px) {
   .greeting{
     margin-top: 15px;
