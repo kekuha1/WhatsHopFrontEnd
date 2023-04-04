@@ -41,14 +41,16 @@ export function BreweryItem(props: IBreweryItemProps) {
             removeBrewery(brewery.id);
             setFavorite(false);
             }}>
-        <img style={{height: "30px", width: "30px", backgroundColor:"green" }} src={starfillsvg}></img>
+              <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
+        {/* <img style={{height: "30px", width: "30px", backgroundColor:"green" }} src={starfillsvg}></img> */}
     </Button>;
     } else {
         button= <Button className="StarbuttonEmpty" style={{padding: 2}} onClick={() => {
             addBrewery(brewery);
             setFavorite(true);
             }}>
-        <img style={{height: "30px", width: "30px", backgroundColor:"grey"}} src={staremptysvg}></img>
+               <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
+        {/* <img style={{height: "30px", width: "30px", backgroundColor:"grey"}} src={staremptysvg}></img> */}
     </Button>;
     }
 
