@@ -9,12 +9,17 @@ import ProfileRoute from "./components/ProfileRoute";
 import AuthContextProvider from "./context/AuthContextProvider";
 import FavoritesRoute from "./components/FavoritesRoute";
 import FavoritesContextProvider from "./context/FavoritesContextProvider";
+import AuthContext from "./context/AuthContext";
+import { useContext } from "react";
 
 function App() {
+  const { user } = useContext(AuthContext);
+  const userId = user?.uid || null;
+
   return (
     <div className="App">
       <AuthContextProvider>
-        <FavoritesContextProvider>
+        <FavoritesContextProvider userId={userId ?? ""}>
         <Header />
         <Routes>
           <Route path="/brewerylist" element={<BreweryList />} />
