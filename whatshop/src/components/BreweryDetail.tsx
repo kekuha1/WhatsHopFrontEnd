@@ -56,7 +56,7 @@ export function BreweryDetail() {
       {detailsRoute !== null ? (
         <Row>
           <Col lg="12">
-            <Card>
+            <Card className='mapCard'>
               {imageUrl !== null && (
                 <CardImg
                   top
@@ -68,7 +68,7 @@ export function BreweryDetail() {
               )}
               <CardBody>
                 <CardTitle tag="h5">{detailsRoute?.name}</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                <CardSubtitle className="brewDetailType" tag="h6">
                   Type: {detailsRoute?.brewery_type}
                 </CardSubtitle>
                 <CardLink href={detailsRoute?.website_url ?? ""} target="_blank">

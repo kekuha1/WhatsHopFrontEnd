@@ -32,11 +32,11 @@ export function BreweryItem(props: IBreweryItemProps) {
   const { user } = useContext(AuthContext);
   const uid = user?.uid || null;
 
+
   useEffect(() => {
     const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
     if (favorite) {
-      setFavorite(true);
-    }
+      setFavorite(true); }
   }, [favorites, brewery.id, uid]);
 
   const addFavoriteHandler = () => {
@@ -64,8 +64,8 @@ export function BreweryItem(props: IBreweryItemProps) {
       onClick={removeFavoriteHandler}
     >
       <img
-        style={{ height: "30px", width: "30px", backgroundColor: "green" }}
-        src={starfillsvg}
+      <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
+         
         alt="favorite"
       />
     </Button>
@@ -76,8 +76,7 @@ export function BreweryItem(props: IBreweryItemProps) {
       onClick={addFavoriteHandler}
     >
       <img
-        style={{ height: "30px", width: "30px", backgroundColor: "grey" }}
-        src={staremptysvg}
+        <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
         alt="not favorite"
       />
     </Button>
