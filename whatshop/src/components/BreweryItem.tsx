@@ -63,22 +63,20 @@ export function BreweryItem(props: IBreweryItemProps) {
       style={{ padding: 2 }}
       onClick={removeFavoriteHandler}
     >
-      <img
-      <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
-         
-        alt="favorite"
+      <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}
+        alt="not favorite"
       />
+      
     </Button>
   ) : (
     <Button
       className="StarbuttonEmpty"
       style={{ padding: 2 }}
       onClick={addFavoriteHandler}
-    >
-      <img
-        <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
-        alt="not favorite"
+    > <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}
+        alt="favorite"
       />
+        
     </Button>
   );
 
