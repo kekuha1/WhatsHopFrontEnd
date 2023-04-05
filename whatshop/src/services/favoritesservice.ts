@@ -14,3 +14,7 @@ export async function addFavorite(favorite: Favorites): Promise<Favorites> {
     .post<Favorites>(`${baseUrl}/user/`, favorite)
     .then((res) => res.data);
 }
+
+export const deleteFavorite = async (id: string): Promise<void> => {
+  await axios.delete(`${baseUrl}/user/${id}`);
+};

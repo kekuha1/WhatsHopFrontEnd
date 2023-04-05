@@ -14,55 +14,73 @@ import {
 import { Link } from "react-router-dom";
 import BreweryContext from "../context/BreweryContext";
 import { CollectionReference } from "firebase/firestore";
+import AuthContext from "../context/AuthContext";
+import { FavoritesContextModel } from "../context/FavoritesContextModel";
+import FavoritesContext from "../context/FavoritesContext";
 
 export interface IBreweryItemProps {
   brewery : Brewery;
 }
 
 export function BreweryItem(props: IBreweryItemProps) {
-  let { brewery } = props;
+  const { brewery } = props;
 
-  const [isFavorite, setFavorite] = useState<Boolean>(false);
-  const { addBrewery } = useContext(BreweryContext);
+  const [isFavorite, setFavorite] = useState<boolean>(false);
+
+  const { favorites, addFavorite, deleteFavorite } = useContext<FavoritesContextModel>(FavoritesContext);
+
+  const { user } = useContext(AuthContext);
+  const uid = user?.uid || null;
 
 
-  const { removeBrewery, breweries } = useContext(BreweryContext);
-    useEffect(() => {
-        if (breweries.find((brew:Brewery) => brew.id === brewery.id)) {
-            setFavorite(true);
-        }
-    },[])
+  useEffect(() => {
+    const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
+    if (favorite) {
+      setFavorite(true); }
+  }, [favorites, brewery.id, uid]);
 
-    console.log(breweries);
-
-    let button;
-    if (isFavorite){
-        button= <Button className="Starbutton" style={{padding: 2}} onClick={() => {
-            removeBrewery(brewery.id);
-            setFavorite(false);
-            }}>
-              <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
-        {/* <img style={{height: "30px", width: "30px", backgroundColor:"green" }} src={starfillsvg}></img> */}
-    </Button>;
-    } else {
-        button= <Button className="StarbuttonEmpty" style={{padding: 2}} onClick={() => {
-            addBrewery(brewery);
-            setFavorite(true);
-            }}>
-               <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
-        {/* <img style={{height: "30px", width: "30px", backgroundColor:"grey"}} src={staremptysvg}></img> */}
-    </Button>;
+  const addFavoriteHandler = () => {
+    if (uid) {
+      const newFavorite = { uid, breweryId: brewery.id, brewery };
+      addFavorite(newFavorite);
+      setFavorite(true);
     }
+  };
 
-  // function removeBrewery(id: any) {
-  //   throw new Error("Function not implemented.");
-  // }
+  const removeFavoriteHandler = () => {
+    if (uid) {
+      const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
+      if (favorite) {
+        deleteFavorite(favorite._id!);
+        setFavorite(false);
+      }
+    }
+  };
 
-  // function setBreweries(arg0: boolean) {
-  //   throw new Error("Function not implemented.");
-  // }
-
-  // use context here to create the addBrewery function to add something to the favorites list
+  const button = isFavorite ? (
+    <Button
+      className="Starbutton"
+      style={{ padding: 2 }}
+      onClick={removeFavoriteHandler}
+    >
+      <img
+      <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
+         
+        alt="favorite"
+      />
+    </Button>
+  ) : (
+    <Button
+      className="StarbuttonEmpty"
+      style={{ padding: 2 }}
+      onClick={addFavoriteHandler}
+    >
+      <img
+        <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}/>
+        alt="not favorite"
+      />
+    </Button>
+  );
 
   return (
     <CardDeck className="wholeCard">
