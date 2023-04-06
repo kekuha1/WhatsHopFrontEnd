@@ -7,12 +7,19 @@ import { BreweryList } from "./components/BreweryList";
 import { BreweryDetail } from "./components/BreweryDetail";
 import ProfileRoute from "./components/ProfileRoute";
 import AuthContextProvider from "./context/AuthContextProvider";
-import { BucketListRoute } from "./components/BucketListRoute";
+import FavoritesRoute from "./components/FavoritesRoute";
+import FavoritesContextProvider from "./context/FavoritesContextProvider";
+import AuthContext from "./context/AuthContext";
+import { useContext } from "react";
 
 function App() {
+  const { user } = useContext(AuthContext);
+  const userId = user?.uid || null;
+
   return (
     <div className="App">
       <AuthContextProvider>
+        <FavoritesContextProvider userId={userId ?? ""}>
         <Header />
         <Routes>
           <Route path="/brewerylist" element={<BreweryList />} />
@@ -21,8 +28,9 @@ function App() {
           <Route path="/brewerydetail/:id" element={<BreweryDetail />} />
           <Route path="*" element={<Navigate to={"/brewerylist"} />} />
           <Route path="/profile" element={<ProfileRoute />} />
-          <Route path="/Favorites" element={<BucketListRoute />} />
+          <Route path="/Favorites" element={<FavoritesRoute />} />
         </Routes>
+        </FavoritesContextProvider>
       </AuthContextProvider>
     </div>
   );
