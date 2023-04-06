@@ -29,6 +29,7 @@ input {
 .form-control {
   width: 500px;
   text-align: left;
+  transform: translateY(20px);
   background-color: white;
 }
 
@@ -37,7 +38,8 @@ input {
 }
 
 .Searchbutton {
-  background-color: #2d5980
+  background-color: #2d5980;
+  transform: translateY(15px);
 }
 
 .whatshop {
@@ -151,14 +153,13 @@ section {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10px;
+  margin-top: 30px;
   color: white;
   background-color: #2d5980;
 }
 
 .Thankyou {
   text-align: center;
-  transform: translateY(40px);
   color: white;
 }
 
