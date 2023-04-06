@@ -6,7 +6,9 @@ export function Header() {
  return (
   <>
    <nav className='Header'>
+    <Link to={'/'}>
     <img src='/TransparentBKGD.png' alt='Logo' style={{ height: 'auto', maxWidth: '100px', minWidth: '30px' }} />
+    </Link>
      <h1>
        <Link className='whatshop' to="/">What's Hop?</Link>
      </h1>
