@@ -31,9 +31,9 @@ function FavoritesPage() {
   return (
     <Container>
       <Row>
-        {favorites.map((favorite: any) => (
-          <Col xs="12" md="6" lg="4" key={favorite.breweryId}>
-            <FavoritesItem brewery={favorite.brewery} onDelete={handleDelete} />
+        {favorites.map((favorite: Favorites) => (
+          <Col xs="12" md="6" lg="4" key={favorite._id}>
+            <FavoritesItem favorite={favorite} onDelete={handleDelete} />
           </Col>
         ))}
       </Row>
