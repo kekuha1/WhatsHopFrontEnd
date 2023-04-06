@@ -2,7 +2,7 @@ import axios from "axios";
 import Brewery from "../model/Brewery";
 
 export async function GetAllBreweries(): Promise<Brewery[]> {
-  const response = await axios.get<Brewery[]>('https://api.openbrewerydb.org/breweries?per_page=12');
+  const response = await axios.get<Brewery[]>('https://api.openbrewerydb.org/breweries?per_page=36');
   return response.data;
 }
 
@@ -16,7 +16,7 @@ export async function queryBreweries(city: string, state: string): Promise<Brewe
     params.by_state = encodeURIComponent(state.replace(/\s+/g, '_'));
   }
   try {
-    const response = await axios.get<Brewery[]>('https://api.openbrewerydb.org/breweries?per_page=12', { params });
+    const response = await axios.get<Brewery[]>('https://api.openbrewerydb.org/breweries?per_page=36', { params });
     return response.data;
   } catch (error) {
     console.log(error);
