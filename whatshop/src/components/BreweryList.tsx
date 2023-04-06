@@ -32,7 +32,6 @@ export function BreweryList() {
   return (
     <div className="Breweries">
       <ProfileRoute />
-      <p>{user?.uid}</p>
       <SearchForm filterBreweries={filterBreweries} />
       <div className='Button-Bar'>
       <h5 className='topcityheader'>Search by top ten Beer Cities!</h5>
