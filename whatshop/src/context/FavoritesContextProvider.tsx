@@ -31,7 +31,7 @@ const FavoritesContextProvider = ({ children, userId }: FavoritesContextProvider
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite: handleAddFavorite, deleteFavorite: handleDeleteFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite: handleAddFavorite, deleteFavorite: handleDeleteFavorite}}>
       {children}
     </FavoritesContext.Provider>
   );

@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Brewery from "../model/Brewery";
-import starfillsvg from "../../src/assets/starfill.svg"
-import staremptysvg from "../../src/assets/starempty.svg"
 import {
   Button,
   Card,
@@ -12,11 +10,10 @@ import {
   CardTitle,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import BreweryContext from "../context/BreweryContext";
-import { CollectionReference } from "firebase/firestore";
 import AuthContext from "../context/AuthContext";
 import { FavoritesContextModel } from "../context/FavoritesContextModel";
 import FavoritesContext from "../context/FavoritesContext";
+import { fetchFavoritesByUserId } from "../services/favoritesservice";
 
 export interface IBreweryItemProps {
   brewery : Brewery;
@@ -34,10 +31,15 @@ export function BreweryItem(props: IBreweryItemProps) {
 
 
   useEffect(() => {
-    const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
-    if (favorite) {
-      setFavorite(true); }
-  }, [favorites, brewery.id, uid]);
+    const getFavorites = async () => {
+      const fetchedFavorites = await fetchFavoritesByUserId(uid!);
+      const favorite = fetchedFavorites.find((fav) => fav.breweryId === brewery.id);
+      setFavorite(!!favorite);
+    };
+    if (uid) {
+      getFavorites();
+    }
+  }, [uid, brewery.id]);
 
   const addFavoriteHandler = () => {
     if (uid) {
