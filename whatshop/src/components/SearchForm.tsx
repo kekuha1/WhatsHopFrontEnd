@@ -23,11 +23,11 @@ export function SearchForm (props: ISearchFormProps) {
       <form onSubmit={handleSubmit} className="search-form">
         <div className="form-group">
           <label htmlFor="city"></label>
-          <input type="text" id="city" className="form-control" placeholder="Input City" onChange={(e) => setCity(e.target.value)} />
+          <input type="text" id="city" className="form-control" placeholder="Input City" onChange={(e) => setCity(e.target.value.replace(/^\s+|\s+$/g, ''))} />
         </div>
         <div className="form-group">
           <label htmlFor="state"></label>
-          <input type="text" id="state" className="form-control" placeholder="Input State" onChange={(e) => setState(e.target.value)} />
+          <input type="text" id="state" className="form-control" placeholder="Input State" onChange={(e) => setState(e.target.value.replace(/^\s+|\s+$/g, ''))} />
         </div>
         <button type="submit" className="Searchbutton">Submit</button>
       </form>
