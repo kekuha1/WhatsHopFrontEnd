@@ -1,99 +1,112 @@
 import React, { useContext, useEffect, useState } from "react";
-import Brewery from "../model/Brewery";
-import starfillsvg from "../../src/assets/starfill.svg"
-import staremptysvg from "../../src/assets/starempty.svg"
-import {
-  Button,
-  Card,
-  CardBody,
-  CardDeck,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-} from "reactstrap";
+import { Button, Card, CardBody, CardDeck, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import { Link } from "react-router-dom";
-import BreweryContext from "../context/BreweryContext";
-import { CollectionReference } from "firebase/firestore";
 import AuthContext from "../context/AuthContext";
-import { FavoritesContextModel } from "../context/FavoritesContextModel";
-import FavoritesContext from "../context/FavoritesContext";
+import { fetchFavoritesByUserId, addFavorite, deleteFavorite } from "../services/favoritesservice";
+import Brewery from "../model/Brewery";
 
 export interface IBreweryItemProps {
-  brewery : Brewery;
+  brewery: Brewery;
 }
 
 export function BreweryItem(props: IBreweryItemProps) {
   const { brewery } = props;
 
-  const [isFavorite, setFavorite] = useState<boolean>(false);
-
-  const { favorites, addFavorite, deleteFavorite } = useContext<FavoritesContextModel>(FavoritesContext);
-
   const { user } = useContext(AuthContext);
   const uid = user?.uid || null;
 
+  const [isFavorite, setFavorite] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
-    if (favorite) {
-      setFavorite(true); }
-  }, [favorites, brewery.id, uid]);
+    const fetchFavoriteStatus = async () => {
+      setLoading(true);
 
-  const addFavoriteHandler = () => {
+      // Check if the brewery is already favorited
+      const favorites = await fetchFavoritesByUserId(uid ?? "");
+      const isBreweryFavorite = favorites.some((fav) => fav.breweryId === brewery.id);
+
+      setFavorite(isBreweryFavorite);
+      setLoading(false);
+    };
+
     if (uid) {
-      const newFavorite = { uid, breweryId: brewery.id, brewery };
-      addFavorite(newFavorite);
-      setFavorite(true);
+      fetchFavoriteStatus();
     }
-  };
+  }, [brewery.id, uid]);
 
-  const removeFavoriteHandler = () => {
+  const addFavoriteHandler = async () => {
     if (uid) {
-      const favorite = favorites.find((fav) => fav.breweryId === brewery.id && fav.uid === uid);
-      if (favorite) {
-        deleteFavorite(favorite._id!);
-        setFavorite(false);
+      try {
+        // Add the brewery to favorites
+        await addFavorite({ uid, breweryId: brewery.id, brewery });
+        setFavorite(true);
+      } catch (error) {
+        console.log("Error adding favorite:", error);
       }
     }
   };
 
-  const button = isFavorite ? (
-    <Button
-      className="Starbutton"
-      style={{ padding: 2 }}
-      onClick={removeFavoriteHandler}
-    >
-      <img src="/beer.avif" style={{height: "30px", width: "30px", backgroundColor:"" }}
+  const removeFavoriteHandler = async () => {
+    if (uid) {
+      try {
+        // Remove the brewery from favorites
+        const favorites = await fetchFavoritesByUserId(uid);
+        const favorite = favorites.find((fav) => fav.breweryId === brewery.id);
+
+        if (favorite) {
+          await deleteFavorite(favorite._id!);
+          setFavorite(false);
+        }
+      } catch (error) {
+        console.log("Error removing favorite:", error);
+      }
+    }
+  };
+
+  const button = isLoading ? (
+    <Button disabled>Loading...</Button>
+  ) : isFavorite ? (
+    <Button className="Starbutton" style={{ padding: 2 }} onClick={removeFavoriteHandler}>
+      <img
+        src="/beer.avif"
+        style={{ height: "30px", width: "30px", backgroundColor: "" }}
         alt="not favorite"
       />
-      
     </Button>
   ) : (
-    <Button
-      className="StarbuttonEmpty"
-      style={{ padding: 2 }}
-      onClick={addFavoriteHandler}
-    > <img src="/beerfill.png" style={{height: "30px", width: "30px", backgroundColor:"" }}
+    <Button className="StarbuttonEmpty" style={{ padding: 2 }} onClick={addFavoriteHandler}>
+      <img
+        src="/beerfill.png"
+        style={{ height: "30px", width: "30px", backgroundColor: "" }}
         alt="favorite"
       />
-        
     </Button>
   );
 
   return (
     <CardDeck className="wholeCard">
-      <Card  className="cardStyle" style={{ height: "220px" }}>
+      <Card className="cardStyle" style={{ height: "220px" }}>
         <CardBody>
-          <CardTitle className="CardText" tag="h5">{brewery.name}</CardTitle>
+          <CardTitle className="CardText" tag="h5">
+            {brewery.name}
+          </CardTitle>
           <CardSubtitle className="CardText">
-           <b>Location:</b> {brewery.city}, {brewery.state}
+            <b>Location:</b> {brewery.city}, {brewery.state}
           </CardSubtitle>
-          <CardText className="CardText"><b>Type:</b> {brewery.brewery_type}</CardText>
-          <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}><button className="CardReviews">Reviews</button></Link>
-      <Link to={`/brewerydetail/${brewery.id}`}><button className="CardDetails">Details</button></Link>
-      {button}
+          <CardText className="CardText">
+            <b>Type:</b> {brewery.brewery_type}
+          </CardText>
+          <Link to={`/reviews/${brewery.id}?name=${brewery.name}`}>
+            <button className="CardReviews">Reviews</button>
+          </Link>
+          <Link to={`/brewerydetail/${brewery.id}`}>
+            <button className="CardDetails">Details</button>
+          </Link>
+          {button}
         </CardBody>
       </Card>
     </CardDeck>
   );
 }
+
