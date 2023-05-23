@@ -11,6 +11,8 @@ import FavoritesRoute from "./components/FavoritesRoute";
 import FavoritesContextProvider from "./context/FavoritesContextProvider";
 import AuthContext from "./context/AuthContext";
 import { useContext } from "react";
+import Articles from "./articles/Articles";
+import Ireland from "./articles/ArticlesContent/Ireland";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -29,6 +31,8 @@ function App() {
           <Route path="*" element={<Navigate to={"/brewerylist"} />} />
           <Route path="/profile" element={<ProfileRoute />} />
           <Route path="/Favorites" element={<FavoritesRoute />} />
+          <Route path="/Articles" element={<Articles />} />
+          <Route path='/Articles/ArticlesContent/Ireland' element={<Ireland/>} />
         </Routes>
         </FavoritesContextProvider>
       </AuthContextProvider>
