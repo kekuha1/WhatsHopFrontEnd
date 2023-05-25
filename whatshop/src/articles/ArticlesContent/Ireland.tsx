@@ -1,9 +1,12 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const IrelandArticle = () => {
   const markdownContent = `
 # The Role of Alcohol and Water Safety in Ireland's History: Before Tea and Coffee
+
+**Published Date: May 24, 2023  
+Author: David Isaacs**
 
 ## Introduction
 
@@ -30,7 +33,14 @@ Over time, advancements in sanitation and water treatment methods have greatly e
 The historical context of drinking alcohol versus water in Ireland before the introduction of tea and coffee reveals the challenges associated with accessing clean water sources and maintaining public health. While alcohol, particularly beer, played a role in public health due to the brewing process, it is important to note that responsible consumption was essential. The arrival of tea and coffee as alternative beverages provided boiled water, significantly improving water safety. Presently, clean drinking water is readily available, thanks to advancements in sanitation practices, while alcohol is enjoyed responsibly alongside safe hydration practices.
 `;
 
-  return <ReactMarkdown>{markdownContent}</ReactMarkdown>;
+  return (
+    <>
+      <title>The Role of Alcohol and Water Safety in Ireland's History: Before Tea and Coffee</title>
+      <meta name="description" content="Explore the historical role of alcohol and water safety in Ireland before the introduction of tea and coffee. Learn about the challenges of accessing clean water and the significance of alcohol for public health." />
+      <ReactMarkdown>{markdownContent}</ReactMarkdown>
+    </>
+  );
 };
 
 export default IrelandArticle;
+

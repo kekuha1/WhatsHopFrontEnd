@@ -14,7 +14,7 @@ export function Header() {
      </h1>
      <ul>
       <li>
-      <Link className="headerlinkbutton" to="/favorites">Favorite</Link>
+      <Link className="headerlinkbutton" to="/favorites">Favorites</Link>
       </li>
       <li>
          <Link className='headerlinkbutton' to="/glossary">Glossary</Link>

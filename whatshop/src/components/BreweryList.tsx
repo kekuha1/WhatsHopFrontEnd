@@ -30,6 +30,10 @@ export function BreweryList() {
 }
 
   return (
+    <>
+      <head>
+        
+      </head>
     <div className="Breweries">
       <ProfileRoute />
       <SearchForm filterBreweries={filterBreweries} />
@@ -51,5 +55,6 @@ export function BreweryList() {
         )}
       </Row>
     </div>
+    </>
   );
 }
