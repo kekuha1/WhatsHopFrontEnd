@@ -72,8 +72,8 @@ useEffect(() => {
     }
   }
 
-function getGoogleMapsLink(lat: number, lng: number): string {
-  const url = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+function getGoogleMapsLink(name:string, city: string, state_province: string): string {
+  const url = `https://www.google.com/maps/search/?api=1&query=${name},${city},${state_province}`;
   return url;
 }
 
@@ -146,8 +146,7 @@ function renderRatingStars(rating: number) {
                   {googlePlacesData?.candidates[0]?.geometry?.location && (
                     <a
                       href={getGoogleMapsLink(
-                        googlePlacesData.candidates[0].geometry.location.lat,
-                        googlePlacesData.candidates[0].geometry.location.lng
+                        detailsRoute?.name, detailsRoute?.city,detailsRoute?.state
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
