@@ -15,14 +15,14 @@ export function FavoritesItem({ favorite, onDelete }: IFavoritesItemProps) {
   };
 
   return (
-    <Card style={{ height: "220px" }}>
+    <Card className="FavoriteCard">
       <CardBody>
         <CardTitle tag="h5">{favorite.brewery.name}</CardTitle>
         <CardSubtitle>{favorite.brewery.city}, {favorite.brewery.state}</CardSubtitle>
         <CardText>{favorite.brewery.brewery_type}</CardText>
         <Link to={`/reviews/${favorite.brewery.id}?name=${favorite.brewery.name}`}><button className="CardReviews">Reviews</button></Link>
       <Link to={`/brewerydetail/${favorite.brewery.id}`}><button className="CardDetails">Details</button></Link>
-        <Button color="danger" onClick={handleDelete}><i className="fa fa-trash">Remove</i></Button>
+        <Button onClick={handleDelete} className="RemoveButton">X</Button>
       </CardBody>
     </Card>
   );

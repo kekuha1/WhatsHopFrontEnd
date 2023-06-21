@@ -2,6 +2,10 @@
   background-color: #b2b7bb;
 }
 
+.FavoritesPage{
+  background-color: #b2b7bb;
+}
+
 .Header {
   padding: 20px;
   flex-direction: row;
@@ -207,6 +211,7 @@ section {
   margin-left: 10px;
   box-shadow: 5px 5px #7ac142;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .ReviewsList {
@@ -248,6 +253,36 @@ section {
   margin-right: 5px;
   margin-bottom: 3px;
 }
+
+.FavoriteCard {
+  color: white;
+  width: 250px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px #7ac142;
+  background-color: #002145;
+  border-radius: 10px;
+  align-items: center;
+  transform: translateX(50px)
+}
+
+.RemoveButton {
+  background-color: #A5ACAF;
+  font-size: 11px;
+  height: auto;
+  transform: translateY(2px);
+  margin-left: 5px;
+}
+
+.RemoveButton:hover {
+  background-color: red;
+}
+
+.FavoritesBack {
+  color: #A5ACAF;
+}
+
 
 @media screen and (max-width: 540px) { 
 
