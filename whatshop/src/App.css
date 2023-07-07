@@ -257,6 +257,7 @@ section {
 .FavoriteCard {
   color: white;
   width: 250px;
+  height: 210px;
   display: flex;
   margin-top: 10px;
   margin-bottom: 10px;
