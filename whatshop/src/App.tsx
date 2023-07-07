@@ -13,6 +13,7 @@ import AuthContext from "./context/AuthContext";
 import { useContext } from "react";
 import Articles from "./articles/Articles";
 import Ireland from "./articles/ArticlesContent/Ireland";
+import CraftBreweriesArticle from "./articles/ArticlesContent/CraftBreweryPopularity";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Favorites" element={<FavoritesRoute />} />
           <Route path="/Articles" element={<Articles />} />
           <Route path='/Articles/ArticlesContent/Ireland' element={<Ireland/>} />
+          <Route path='/Articles/ArticlesContent/CraftBreweryPopularity' element={<CraftBreweriesArticle/>} />
         </Routes>
         </FavoritesContextProvider>
       </AuthContextProvider>
